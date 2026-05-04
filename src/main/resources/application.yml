@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: FeiKnow
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:feiknow}
+    username: ${POSTGRES_USER:feiknow}
+    password: ${POSTGRES_PASSWORD:changeme}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 3000
+      maximum-pool-size: 10
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+server:
+  port: 8080
+
+
+
+feishu:
+  app-id: ${FEISHU_APP_ID:your-feishu-app-id}
+  app-secret: ${FEISHU_APP_SECRET:your-feishu-app-secret}
+  group-chat-id: ${FEISHU_GROUP_CHAT_ID:your-group-chat-id}
+  token-cache-ttl: ${FEISHU_TOKEN_CACHE_TTL:7200}
+  base-url: ${FEISHU_BASE_URL:https://open.feishu.cn}
+  encrypt-key: ${FEISHU_ENCRYPT_KEY:your-encrypt-key}
+  verification-token: ${FEISHU_VERIFICATION_TOKEN:your-verification-token}
